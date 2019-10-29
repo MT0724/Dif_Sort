@@ -1,0 +1,30 @@
+#快速排序法
+def quickSort(arr,left,right):
+    l,r,t=left,right,0
+    if l <= r:
+        t=arr[left]   #基准参数
+        while(l<r):
+            #当右边的值大于基准参数时，右值向左挪一(位置和值)
+            while l<r and arr[r]<=t:
+                r=r-1
+            arr[l]=arr[r] 
+           #右值挪到左值的位置
+            # 当左边的值小于基准参数时，右值向左挪一(位置和值)
+            while l<r and arr[l]>=t:
+                l=l+1
+            arr[r]=arr[l]   #左值放入右值的位置
+        '''
+            当前一轮排完后将基准参数放入
+            将基准值左右两边的数值分别放入排序(递归调用)
+        '''
+        arr[l]=t #基准参数归位
+
+        quickSort(arr,left,l-1) #基准位置左侧数据排序
+        quickSort(arr,l+1,right) #基准位置右侧数据排序
+
+array=[23,1,61,100,11,99,24,21]
+print ("排序之前")
+print (array)
+print ("排序之后")
+quickSort(array,0,len(array)-1)
+print (array)
