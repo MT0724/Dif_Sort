@@ -1,2 +1,2 @@
 # Dif_Sort
-this repository used to record different sort method
+This repository used to record different sort method
