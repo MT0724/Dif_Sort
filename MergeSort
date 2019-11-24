@@ -1,0 +1,31 @@
+##归并排序，从小到大
+def merge(l1, l2):
+    l = 0
+    r = 0
+    result = []
+    while l < len(l1) and r < len(l2):
+        if l1[l] < l2[r]:
+            result.append(l1[l])
+            l += 1
+        else:
+            result.append(l2[r])
+            r += 1
+    result += l1[l:]
+    result += l2[r:]
+    return result
+ 
+def mergesort(array):
+    if len(array) <= 1:
+        return array
+    num = int(len(array)/2)
+    l1 = mergesort(array[:num])
+    l2 = mergesort(array[num:])
+    return merge(l1, l2)
+ 
+if __name__ == '__main__':
+    List = [1, 22, 90, 4, 65, 3, 73, 8]
+    print("归并排序前的列表为：")
+    print(List)
+    nList = mergesort(List)
+    print("归并排序后的列表为：")
+    print(nList)
