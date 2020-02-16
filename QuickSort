@@ -17,8 +17,8 @@ def quickSort(arr,left,right):
         quickSort(arr,l+1,right)   #基准位置右侧数据排序
 
 array=[23,1,60,10,2]
-print ("排序之前")
+print ("经过快速排序之前")
 print (array)
-print ("排序之后")
+print ("经过快速排序之后")
 quickSort(array,0,len(array)-1)
 print (array)
